@@ -59,9 +59,9 @@ exports.getDashboardData=async(req,res)=>
 
         res.json({
             totalBalance:
-                (totalIncome[0]?.total|| 0) -(totalExpense[0]?.total || 0),
-            totalIncome:totalIncome[0]?.total|| 0,
-            totalExpense:totalExpense[0]?.total|| 0,
+                (totalIncome[0]?.totalIncome|| 0) -(totalExpense[0]?.totalExpense || 0),
+            totalIncome:totalIncome[0]?.totalIncome|| 0,
+            totalExpense:totalExpense[0]?.totalExpense|| 0,
             last30DaysExpenses:{
                 total:expenseLast30Days,
                 transactions:last30DaysExpenseTransactions,
