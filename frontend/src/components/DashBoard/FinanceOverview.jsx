@@ -9,18 +9,22 @@ const FinanceOverview = ({totalBalance,totalIncome,totalExpense}) => {
         {name:"Total Income",amount:totalIncome},
     ];
     return (
-       <div className="card">
-           <div className="flex items-center justify-between">
-               <h5 className="text-lg">Financial Overview</h5>
-           </div>
-           <CustomPieChart
-               data={balanceData}
-               label="Total Balance"
-               totalAmount={`$${totalBalance}`}
-               colors={COLORS}
-               showTextAnchor
-           />
-       </div>
-    )
+        <div className="card p-6 bg-white rounded-xl shadow-md w-full max-w-md">
+            <div className="flex items-center justify-between mb-4">
+                <h5 className="text-xl font-semibold text-gray-800">Financial Overview</h5>
+            </div>
+
+            <div className="w-full flex justify-center items-center mt-4">
+                <CustomPieChart
+                    data={balanceData}
+                    label="Total Balance"
+                    totalAmount={`$${totalBalance}`}
+                    colors={COLORS}
+                    showTextAnchor
+                />
+            </div>
+        </div>
+    );
+
 }
 export default FinanceOverview;
