@@ -23,10 +23,12 @@ const CustomBarChart = ({ data }) => {
                         dataKey="amount"
                         radius={[10, 10, 0, 0]}
                     >
-                        {data.map((entry, index) => (
+                        {(Array.isArray(data) ? data : []).map((entry, index) => (
                             <Cell key={`${entry.category}-${index}`} fill={getBarColor(index)} />
-
                         ))}
+
+
+
                     </Bar>
                 </BarChart>
             </ResponsiveContainer>
