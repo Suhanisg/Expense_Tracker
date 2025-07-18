@@ -1,3 +1,4 @@
+import moment from "moment";
 export const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
@@ -24,10 +25,11 @@ export const addThousandsSeparator = (num) => {
         : formatedInteger;
 };
 
-export const prepareExpenseBarChartData=(data=[])=>{
-    const chartData=data.map((item)=>({
-        category:item?.category,
-        amount:item?.amount,
+export const prepareExpenseBarChartData = (data = []) => {
+    const chartData = data.map((item) => ({
+        category: item?.category,
+        amount: item?.amount,
+        month: moment(item?.date).format("MMM"), // added for XAxis
     }));
-    return chartData
-}
+    return chartData;
+};
