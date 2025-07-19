@@ -6,7 +6,12 @@ const AuthLayout = ({ children }) => {
     return (
         <div className="flex">
             <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
-                <h2 className="text-lg font-medium text-black">Expense Tracker</h2>
+                <div className="flex items-center gap-3 mb-6">
+                    <img src="/accounting%20(2).png" alt="Logo" className="w-12 h-12 object-contain" />
+                    <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-red-400 tracking-wider drop-shadow-sm">
+                        BUDGET BUDDY
+                    </h2>
+                </div>
                 {children}
             </div>
             <div className="hidden md:block w-[40vw] h-screen bg-violet-50 bg-auth-bg-img bg-cover bg-no-repeat bg-center overflow-hidden p-8 relative">
