@@ -1,10 +1,23 @@
 {
-  "name": "Expense_Tracker",
+  "name": "expense_tracker",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm install --prefix backend && npm install --prefix frontend && nom run build --prefix frontend ",
+    "start": "npm run start --prefix backend"
   },
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suhanisg/Expense_Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Suhanisg/Expense_Tracker/issues"
+  },
+  "homepage": "https://github.com/Suhanisg/Expense_Tracker#readme"
 }

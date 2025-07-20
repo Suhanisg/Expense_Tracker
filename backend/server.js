@@ -27,8 +27,17 @@ app.use("/api/v1/income",incomeRoutes);
 app.use("/api/v1/expense",expenseRoutes);
 app.use("/api/v1/dashboard",dashboardRoutes);
 
+if(process.env.NODE_ENV==="production"){
+    app.use(express.static(path.join(__dirname,"frontend/build")));
+
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname,"frontend","build","index.html"));
+    });
+}
+
 //server uploads folder
 app.use("/uploads",express.static(path.join(__dirname,"uploads")));
 
 const PORT=process.env.PORT || 5000;
 app.listen(PORT,()=>console.log(`Server is running on port ${PORT}`));
+const __dirname=path.resolve();
