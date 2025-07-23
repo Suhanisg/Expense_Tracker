@@ -8,7 +8,6 @@
     "build": "npm install --prefix frontend && npm run build --prefix frontend",
     "dev": "nodemon backend/server.js"
   },
-
   "private": true,
   "repository": {
     "type": "git",
@@ -23,6 +22,7 @@
   },
   "homepage": "https://github.com/Suhanisg/Expense_Tracker#readme",
   "dependencies": {
+    "dotenv": "^17.2.0",
     "mongoose": "^8.16.4"
   }
 }
