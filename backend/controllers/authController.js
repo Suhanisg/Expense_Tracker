@@ -11,14 +11,14 @@ exports.registerUser = async (req, res) => {
     const { fullName, email, password, profileImageUrl } = req.body;
 
     if (!fullName || !email || !password) {
-        return res.status(400).json({ msg: "All fields are required" });
+        return res.status(400).json({ message: "All fields are required" });
     }
 
     try {
         const existingUser = await User.findOne({ email });
 
         if (existingUser) {
-            return res.status(400).json({ msg: "Email already in use" });
+            return res.status(400).json({ message: "Email already in use" });
         }
 
         const user = await User.create({
@@ -34,8 +34,8 @@ exports.registerUser = async (req, res) => {
             token: generateToken(user._id),
         });
     } catch (error) {
-        console.error("Register Error:", error); // Added for debugging
-        res.status(500).json({ msg: "Error registering user", error: error.message });
+        console.error("Register Error:", error);
+        res.status(500).json({ message: "Error registering user", error: error.message });
     }
 };
 
@@ -44,14 +44,14 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ msg: "All fields are required" });
+        return res.status(400).json({ message: "All fields are required" });
     }
 
     try {
         const user = await User.findOne({ email });
 
         if (!user || !(await user.comparePassword(password))) {
-            return res.status(400).json({ msg: "Invalid credentials" });
+            return res.status(400).json({ message: "Invalid credentials" });
         }
 
         res.status(200).json({
@@ -60,8 +60,8 @@ exports.loginUser = async (req, res) => {
             token: generateToken(user._id),
         });
     } catch (error) {
-        console.error("Login Error:", error); // Added for debugging
-        res.status(500).json({ msg: "Error logging in user", error: error.message });
+        console.error("Login Error:", error);
+        res.status(500).json({ message: "Error logging in user", error: error.message });
     }
 };
 
@@ -71,12 +71,12 @@ exports.getUserInfo = async (req, res) => {
         const user = await User.findById(req.user.id).select("-password");
 
         if (!user) {
-            return res.status(400).json({ msg: "User not found" });
+            return res.status(400).json({ message: "User not found" });
         }
 
         res.status(200).json(user);
     } catch (error) {
-        console.error("Get User Info Error:", error); // Added for debugging
-        res.status(500).json({ msg: "Error getting user", error: error.message });
+        console.error("Get User Info Error:", error);
+        res.status(500).json({ message: "Error getting user", error: error.message });
     }
 };

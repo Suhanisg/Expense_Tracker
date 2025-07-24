@@ -38,7 +38,6 @@ const SignUp = () => {
         }
         setError("");
 
-        //signUp api call
         try{
             if(profilePic){
                 const imgUploadRes=await uploadImage(profilePic);
@@ -50,7 +49,6 @@ const SignUp = () => {
                 email,
                 password,
                 profileImageUrl
-
             });
             const {token,user}=response.data;
 
@@ -72,15 +70,15 @@ const SignUp = () => {
     };
     return(
         <AuthLayout>
-            <div className="lg:w-[100%] h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center">
-                <h3 className="text-xl font-semibold text-black">Create an Account</h3>
-                <p className="text-xs text-slate-700 mt-[5px] mb-6">
+            <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto mt-10 md:mt-0 flex flex-col justify-center px-4 mx-auto">
+                <h3 className="text-xl font-semibold text-black text-center">Create an Account</h3>
+                <p className="text-xs text-slate-700 mt-[5px] mb-6 text-center">
                     Join us today by entering your details below.
                 </p>
 
                 <form onSubmit={handleSignUp}>
                     <ProfilePhotoSelector image={profilePic} setImage={setProfilePic}/>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <Input
                             value={fullName}
                             onChange={({target})=> setFullName(target.value)}
@@ -95,7 +93,7 @@ const SignUp = () => {
                             type="text"
                             placeholder="name@example.com"
                         />
-                        <div className="col-span-2">
+                        <div className="col-span-1 sm:col-span-2">
                             <Input
                                 value={password}
                                 onChange={({target}) => setPassword(target.value)}
@@ -104,16 +102,15 @@ const SignUp = () => {
                                 placeholder="Min 8 Characters"
                             />
                         </div>
-
                     </div>
 
                     {error && <p className= "text-red-500 text-xs pb-2.5">{error}</p>}
 
-                    <button type="submit" className="btn-primary">
+                    <button type="submit" className="btn-primary w-full mt-4">
                         SIGN UP
                     </button>
 
-                    <p className="text-[13px] text-slate-800 mt-3">
+                    <p className="text-[13px] text-slate-800 mt-3 text-center">
                         Already have an account?{" "}
                         <Link className="font-medium text-primary underline" to="/login">
                             Login
