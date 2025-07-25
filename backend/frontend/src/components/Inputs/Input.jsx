@@ -9,7 +9,7 @@ const Input = ({value,onChange,placeholder,label,type}) => {
     };
     return(
         <div>
-            <label className="text-[13px] text-slate-800">{label}</label>
+            <label className="text-[13px] text-black">{label}</label>
             <div className="input-box">
                 <input
                     type={type == 'password' ? showPassword ? "text" :'password': type}
